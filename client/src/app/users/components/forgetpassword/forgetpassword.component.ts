@@ -20,6 +20,7 @@ export class ForgetpasswordComponent implements OnInit {
 
   captureText:string='';
   textdefult:string='';
+
   ngOnInit(): void {
    // this.captchaComponent.captchaEndpoint = 'simple-captcha-endpoint.ashx';
 
