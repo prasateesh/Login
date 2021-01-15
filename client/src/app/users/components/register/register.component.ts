@@ -17,19 +17,18 @@ export class RegisterComponent implements OnInit {
   };
   public errorMessage:string;
   public message:string;
-  constructor(private userService:UserService,
-              private router:Router) { }
+  public  token:string
+  constructor(private router:Router,private userService:UserService) { }
 
   ngOnInit(): void {
   }
-
-  // submitRegister
-  public submitRegister(){
+  userRegistration() {
     this.userService.register(this.user).subscribe((data) => {
         this.message = data.result;
         this.router.navigate(['/users/login']);
-    } , (error) => {
-      this.errorMessage = error;
-    });
+      },
+      (error) => {
+        this.errorMessage = error;
+      })
   }
 }

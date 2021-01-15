@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { BotDetectCaptchaModule } from 'angular-captcha';
 
 import { UsersRoutingModule } from './users-routing.module';
 import { UsersComponent } from './users.component';
@@ -16,7 +17,7 @@ import { ForgetpasswordComponent } from './components/forgetpassword/forgetpassw
     CommonModule,
     FormsModule,
     HttpClientModule,
-    UsersRoutingModule
+    UsersRoutingModule,
   ]
 })
 export class UsersModule { }

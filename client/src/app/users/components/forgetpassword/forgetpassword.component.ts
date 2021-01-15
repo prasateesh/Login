@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {IUser} from "../../models/IUser";
+import { CaptchaComponent } from 'angular-captcha';
+
 
 @Component({
   selector: 'app-forgetpassword',
@@ -14,11 +16,14 @@ export class ForgetpasswordComponent implements OnInit {
     email : '',
     password : ''
   };
+
   arr:string[]=["hjfggf",'fhgfhgtr','dfghfgfr','fdrtrfdf'];
 
   captureText:string='';
   textdefult:string='';
   ngOnInit(): void {
+   // this.captchaComponent.captchaEndpoint = 'simple-captcha-endpoint.ashx';
+
     this.textdefult="ghdfsgd"
   }
 

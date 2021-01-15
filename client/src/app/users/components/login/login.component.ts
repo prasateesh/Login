@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {IUser} from '../../models/IUser';
 import {UserService} from '../../services/user.service';
 import {Router} from '@angular/router';
+import {FormBuilder} from "@angular/forms";
 
 @Component({
   selector: 'app-login',
@@ -15,25 +16,29 @@ export class LoginComponent implements OnInit {
     email : '',
     password : ''
   };
+  public userDetails:IUser;
   public errorMessage:string;
-  constructor(private userService:UserService,
-              private router:Router) { }
+  public message:string;
+
+  constructor(private router:Router,private userService:UserService) { }
 
   ngOnInit(): void {
   }
+  userLogin(){
+    this.userService.login(this.user).subscribe((data)=>{
+        this.message=data.result;
+        let  token=data.token;
+        this.userDetails=(data.user);
+        localStorage.setItem('token',token);
+        localStorage.setItem('users',JSON.stringify(this.userDetails));
+        this.router.navigate(['/users/dashboard']);
 
-  // submitLogin
-  public submitLogin(){
-    this.userService.login(this.user).subscribe((data) => {
-      let token = data.token;
-      // store the token in local storage
-      localStorage.setItem('token', token);
-      localStorage.setItem('user', JSON.stringify(data.user));
-      //redirect the page to pro events
-      this.router.navigate(['/users/dashboard']);
-    }, (error) => {
-      this.errorMessage = error;
-    });
+      },
+      (error)=>{
+        this.errorMessage=error;
+      })
+
   }
+
 
 }

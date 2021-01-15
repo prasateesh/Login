@@ -9,6 +9,9 @@ import { HomeComponent } from './root/components/home/home.component';
 import {AuthInterceptor} from './root/interceptors/auth.interceptor';
 import {UserService} from './users/services/user.service';
 
+import { BotDetectCaptchaModule } from 'angular-captcha';
+
+
 @NgModule({
   declarations: [
     AppComponent,
