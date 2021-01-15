@@ -1,6 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {IUser} from "../../models/IUser";
-import { CaptchaComponent } from 'angular-captcha';
 
 
 @Component({
